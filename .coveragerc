@@ -1,0 +1,3 @@
+[run]
+source = futr
+omit = futr/test*
