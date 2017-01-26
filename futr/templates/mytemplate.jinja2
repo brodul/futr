@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA6OjoALRz/wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIgAAAAAAAiIiIAAAAAACIiIiAAAAAAIyIiIgAAAAAjMiIiAAAAAAIzIiAzAAAAACMyAxEwAAAAAiAzERMAAAAAAzMxETAAAAADMzMREAAAAAAzMzEwAAAAAAMzMzAAAAAAADMzAAAAAAAAAAAAAAAAAAAAAADh/wAAwP8AAIB/AACAPwAAgB8AAIAPAADABwAA4AMAAPABAAD4AAAA/AAAAP4AAAD/AAAA/4EAAP/DAAD//wAA" rel="icon" type="image/x-icon" />
 
-</body>
+    <title>Futr - Makes kittens cry</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style>
+    .foodItemTitle {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h1>Futr</h1>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Union</h2>
+          {% for date, food in union %}
+          <p>{{ food|safe }}</p>
+          {% endfor %}
+        </div>
+        <div class="col-md-4">
+          <h2>Piramida</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+       </div>
+        <div class="col-md-4">
+          <h2>Sorbara</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+      </footer>
+    </div> <!-- /container -->
+
+
+  </body>
 </html>
