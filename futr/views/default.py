@@ -5,9 +5,14 @@ import futr.parsers
 
 @view_config(route_name='home', renderer='../templates/mytemplate.jinja2')
 def my_view(request):
-    pivnica_parser = futr.parsers.PivnicaParser()
+    pivnica_aggregator = futr.parsers.PivnicaAggregator()
     try:
-        pivnica_content = pivnica_parser.get_day_content()
+        pivnica_content = pivnica_aggregator.get_day_content()
     except futr.parsers.NoMenuForTodayError:
         pivnica_content = ""
-    return {'union': pivnica_content}
+    piramida_aggregator = futr.parsers.PiramidaAggregator()
+    try:
+        piramida_content = piramida_aggregator.get_day_content()
+    except futr.parsers.NoMenuForTodayError:
+        piramida_content = ""
+    return {'union': pivnica_content, 'piramida': piramida_content}
