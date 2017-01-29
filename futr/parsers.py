@@ -89,3 +89,10 @@ class PiramidaAggregator(BaseAggregator):
             weekly_content[date_object] = day_content
 
         return weekly_content
+
+
+class SiskaAggregator(object):
+    def get_weekly_content(self):
+        r = requests.get("https://www.facebook.com/GostilnicaInPivnicaSiska/")
+        soup = BeautifulSoup(r.text, 'html.parser')
+        return [el.find('img').get('src') for el in soup.find_all('div', class_='uiScaledImageContainer')][:10]
