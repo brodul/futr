@@ -15,6 +15,4 @@ def my_view(request):
         piramida_content = piramida_aggregator.get_day_content()
     except futr.parsers.NoMenuForTodayError:
         piramida_content = ""
-    siska_aggregator = futr.parsers.SiskaAggregator()
-    siska_content = siska_aggregator.get_weekly_content()
-    return {'union': pivnica_content, 'piramida': piramida_content, 'siska': siska_content}
+    return {'union': pivnica_content, 'piramida': piramida_content}

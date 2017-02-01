@@ -73,6 +73,7 @@ class PiramidaAggregator(BaseAggregator):
     def get_relevant_elements(self, html):
         soup = BeautifulSoup(html, 'html.parser')
         soup = soup.findAll(class_=["jsrm-menu-header", "jsrm-table"])
+        print soup
         return soup
 
     def get_weekly_content(self, rel_elements):
@@ -88,14 +89,3 @@ class PiramidaAggregator(BaseAggregator):
             weekly_content[date_object] = day_content
 
         return weekly_content
-
-
-class SiskaAggregator(object):
-    def get_weekly_content(self):
-        return []
-        r = requests.get("https://www.facebook.com/GostilnicaInPivnicaSiska/")
-        print r.text.encode('utf-8')
-        soup = BeautifulSoup(r.text, 'html.parser')
-        images = [el.find('img').get('src') for el in soup.find_all('div', class_='uiScaledImageContainer')][:10]
-        print images
-        return images
