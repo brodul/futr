@@ -10,9 +10,9 @@ def my_view(request):
         pivnica_content = pivnica_aggregator.get_day_content()
     except futr.parsers.NoMenuForTodayError:
         pivnica_content = ""
-    piramida_aggregator = futr.parsers.PiramidaAggregator()
     try:
+        piramida_aggregator = futr.parsers.PiramidaAggregator()
         piramida_content = piramida_aggregator.get_day_content()
-    except futr.parsers.NoMenuForTodayError:
+    except (futr.parsers.NoMenuForTodayError, ValueError):
         piramida_content = ""
     return {'union': pivnica_content, 'piramida': piramida_content}
