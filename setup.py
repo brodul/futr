@@ -9,10 +9,7 @@ with open(os.path.join(here, 'CHANGES.txt')) as f:
     CHANGES = f.read()
 
 requires = [
-    'pyramid',
-    'pyramid_jinja2',
-    'pyramid_debugtoolbar',
-    'waitress',
+    'tornado',
     'requests',
     'beautifulsoup4',
     ]
@@ -29,7 +26,7 @@ setup(name='futr',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
           "Programming Language :: Python",
-          "Framework :: Pyramid",
+          "Framework :: Tornado",
           "Topic :: Internet :: WWW/HTTP",
           "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
       ],
@@ -45,9 +42,5 @@ setup(name='futr',
       },
       install_requires=requires,
       entry_points="""\
-      [paste.app_factory]
-      main = futr:main
-      [console_scripts]
-      initialize_futr_db = futr.scripts.initializedb:main
       """,
       )
