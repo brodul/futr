@@ -5,20 +5,16 @@ cl = []
 
 class IndexHandler(web.RequestHandler):
     def get(self):
-        self.render('templates/index.html')
+        self.render('elm/index.html')
 
 
 class SocketHandler(websocket.WebSocketHandler):
     def check_origin(self, origin):
         return True
 
-    def open(self):
-        if self not in cl:
-            cl.append(self)
-
-    def on_close(self):
-        if self in cl:
-            cl.remove(self)
+    def on_message(self, message):
+        self.write_message(u"You said: " + message)
+        print message
 
 
 def app_factory():
