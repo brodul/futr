@@ -27,25 +27,13 @@
       <h1>Futr</h1>
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
           <h2><a href="http://www.pivnica-union.si/si/">Union</a></h2>
           <p>{{ union|safe }}</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
           <h2><a href="http://pizzerijapiramida.si/malice/">Piramida</a></h2>
           <p>{{ piramida|safe }}</p>
-        </div>
-        <div class="col-md-3">
-          <h2>Maharaja</h2>
-          <p>{{ maharaja|safe }}</p>
-        </div>
-        <div class="col-md-3">
-          <h2>Links</h2>
-          <ul>
-            <li><a href="http://www.maharaja.si/dnevna-kosila">Maharaja</a></li>
-            <li><a href="https://www.facebook.com/GostilnicaInPivnicaSiska">Pivnica Siska</a></li>
-            <li><a href="https://titanpad.com/hc7NXc6bQQ">Predlogi glede Futr</a></li>
-          </ul>
         </div>
       </div>
 
@@ -73,8 +61,8 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
+      <div class="row justify-content-md-center">
+        <div class="col-md-6">
           <form method="POST">
             <div class="form-group">
               <label for="name">Your name</label>
@@ -82,14 +70,14 @@
               <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
             <div class="form-group">
-              <label for="locationSelect">Example select</label>
+              <label for="locationSelect">Select location:</label>
               <select class="form-control" name="locationSelect" id="locationSelect">
                 {% for location in locations %}
                 <option value="{{location}}">{{ location }}</option>
                 {% endfor %}
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Food!!!</button>
           </form>
 
         </div>
