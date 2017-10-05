@@ -1,7 +1,5 @@
-import peewee
-
-from futr.services.database.models.person import Person, PersonLocation, Location
-from futr.services.database.factory import db
+from futr.database.models.person import Person, PersonLocation, Location
+from futr.database.factory import db
 
 
 class LocationService(object):

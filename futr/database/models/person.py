@@ -1,6 +1,6 @@
 from peewee import *
 
-from futr.services.database.factory import db
+from futr.database.factory import db
 
 
 class Person(Model):
