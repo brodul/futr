@@ -21,7 +21,9 @@ def close_db_tween_factory(handler, registry):
         # execute the view, creates the response
         response = handler(request)
         # do stuff after the view code with request and session
-        db.close()
+        # TODO(brodul): what can go wrong?
+        if not db.is_closed():
+            db.close()
         # return the response returned by the view
         return response
 
