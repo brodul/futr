@@ -49,6 +49,52 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Locations</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Locations</th>
+                <th>List of persons</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for location, list_ in person_locations.items() %}
+              <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{ location }}</td>
+                <td>{{ ', '.join(list_) }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form method="POST">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input class="form-control" id="name" name="name" placeholder="Enter name">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label for="locationSelect">Example select</label>
+              <select class="form-control" name="locationSelect" id="locationSelect">
+                {% for location in locations %}
+                <option value="{{location}}">{{ location }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </div>
+      </div>
+
       <hr>
 
       <footer>
@@ -56,5 +102,13 @@
     </div> <!-- /container -->
 
 
+  <script src="//cdn.jsdelivr.net/npm/fingerprintjs2@1.5.1/dist/fingerprint2.min.js"></script>
+  <script type="text/javascript">
+   document.addEventListener("DOMContentLoaded", function(event) {
+    new Fingerprint2().get(function(result, components){
+      console.log(result); //a hash, representing your device fingerprint
+    });
+  });
+  </script>
   </body>
 </html>

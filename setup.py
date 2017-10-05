@@ -15,6 +15,8 @@ requires = [
     'waitress',
     'requests',
     'beautifulsoup4',
+    'peewee',
+    'psycopg2',
     ]
 
 tests_require = [
