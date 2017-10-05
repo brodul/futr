@@ -40,7 +40,7 @@ class PivnicaAggregator(BaseAggregator):
 
     def get_relevant_elements(self, html):
         soup = BeautifulSoup(html, 'html.parser')
-        soup = soup.find(class_="foodDayMenu")
+        soup = soup.find(class_=("menus", "tab-content"))
         soup = soup.findAll(
             class_=["foodDayMenuBlockTitle", "foodDayMenuBlock"])
         return soup
