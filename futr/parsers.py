@@ -41,22 +41,18 @@ class PivnicaAggregator(BaseAggregator):
     def get_relevant_elements(self, html):
         soup = BeautifulSoup(html, 'html.parser')
         soup = soup.find(class_=("menus", "tab-content"))
-        soup = soup.findAll(
-            class_=["foodDayMenuBlockTitle", "foodDayMenuBlock"])
+        soup = soup.findAll(class_=["tab-pane", "fade"])
         return soup
 
     def get_weekly_content(self, rel_elements):
         weekly_content = {}
+        for day_content in rel_elements:
+            raw_date = day_content.attrs['id']
+            datetime_object = datetime.strptime(raw_date, '%d%m%Y')
+            weekly_content[datetime_object.date()] = day_content.find(
+                class_='menu-wrap')
 
-        non_decimal = re.compile(r'[^\d.]+')
-        today = datetime.today()
-        for raw_date, day_content in zip(rel_elements[::2], rel_elements[1::2]):
-            raw_date = raw_date.text.strip("-").strip()
-            str_date = non_decimal.sub('', raw_date)
-            datetime_object = datetime.strptime(str_date, '%d.%m.%Y')
-            date_object = datetime_object.date().replace(year=today.year)
-            weekly_content[date_object] = day_content
-
+        # returns a dict (date: html_str)
         return weekly_content
 
 
