@@ -8,4 +8,6 @@ Getting Started
 
 - $VENV/bin/pip install -e .
 
-- $VENV/bin/pserve development.ini
+- start postgres on localhost e.g. `docker run  postgres  -p 5432:5432`
+
+- DATABASE_URL="postgres://postgres:mysecretpassword@localhost/postgres" $VENV/bin/pserve --reload development.ini
