@@ -49,8 +49,11 @@ class PivnicaAggregator(BaseAggregator):
         for day_content in rel_elements:
             raw_date = day_content.attrs['id']
             datetime_object = datetime.strptime(raw_date, '%d%m%Y')
-            weekly_content[datetime_object.date()] = day_content.findAll(
-                class_='menu-wrap')[1]
+            try:
+                weekly_content[datetime_object.date()] = day_content.findAll(
+                    class_='menu-wrap')[1]
+            except IndexError:
+                weekly_content[datetime_object.date()] = ""
 
         # returns a dict (date: html_str)
         return weekly_content
