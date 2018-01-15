@@ -1,10 +1,9 @@
 import os
-import urlparse
+from six.moves.urllib.parse import urlparse
 
 from peewee import PostgresqlDatabase
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
+url = urlparse(os.environ["DATABASE_URL"])
 
 
 def db_factory():

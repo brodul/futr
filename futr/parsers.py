@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import re
 from datetime import datetime
 
@@ -72,7 +74,7 @@ class PiramidaAggregator(BaseAggregator):
     def get_relevant_elements(self, html):
         soup = BeautifulSoup(html, 'html.parser')
         soup = soup.findAll(class_=["jsrm-menu-header", "jsrm-table"])
-        print soup
+        print(soup)
         return soup
 
     def get_weekly_content(self, rel_elements):
@@ -102,10 +104,9 @@ class MaharajaAggregator(BaseAggregator):
 
     def get_relevant_elements(self, html):
         soup = BeautifulSoup(html, 'html.parser')
-        import pdb; pdb.set_trace()
         soup.find_all(text=re.compile("MENU 10:"))[0].parent.parent.next_sibling.next_sibling
         soup = soup.findAll(class_=["jsrm-menu-header", "jsrm-table"])
-        print soup
+        print(soup)
         return soup
 
     def get_weekly_content(self, rel_elements):
